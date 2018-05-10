@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title>myBlog</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+    <h1>Welcome to MyBlog</h1>
+    <ul>
+        {% if not id %}
+        <li><a href="{{ url_for('register') }}">Register</a>
+        <li><a href="{{ url_for('login') }}">Log In</a>
+        {% else %}
+        <li><a href="http://localhost:3000/{{ id }}/articles">Articles</a>
+        <li><a href="http://localhost:3000/{{ id }}/articleCreate">Article Create</a>
+        <li><a href="http://localhost:3000/{{ id }}/articlesAdmin">Articles Admin</a>
+        <li><a href="http://localhost:3000/{{ id }}/userAdmin">User Admin</a>
+        <li><a href="http://localhost:3000/0/userAdmin">Members</a>
+        <li><a href="http://localhost:3000/logout">Logout</a>
+        {% endif %}
+    </ul>
+</nav>
+<section class="content">
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+    {% block content %} {% endblock %}
+</section>

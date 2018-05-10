@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2 style="color: #377ba8"> USER ADMINISTRATION </h2>
+    <p style="color: red">{{ error }}</p>
+    {% for user in users %}
+        <strong>ID: </strong>{{user.id}} <br>
+        <strong>Username: </strong>{{user.username}} <br>
+        <strong>Email: </strong>{{user.email}} <br>
+    {% endfor %}
+    {% if  error != 'Invalid token.' %}
+    <form method="post">
+        <input type="submit" name="submit" value="Delete">
+    </form>
+    <p> Modify your details below </p>
+    <form method="post">
+        <label for="username">Username</label>
+        <input name="username" id="username" required>
+        <label for="email">Email</label>
+        <input name="email" id="email" required>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+        <input type="submit" name="submit" value="Modify">
+    </form>
+    {%  endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2 style="color: #377ba8"> REGISTER </h2>
+    <p>{{ error }}</p>
+    <form method="post">
+        <label for="username">Username</label>
+        <input name="username" id="username" required>
+        <label for="email">Email</label>
+        <input name="email" id="email" required>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+        <input type="submit" value="Register">
+    </form>
+{% endblock %}
